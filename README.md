@@ -1,0 +1,1 @@
+This is a minimal example of how to use the [w32](https://github.com/gonutz/w32) library to display a window in Go on Windows.
