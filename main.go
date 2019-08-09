@@ -14,11 +14,13 @@ func main() {
 	w32.RegisterClassEx(&w32.WNDCLASSEX{
 		Cursor: w32.LoadCursor(0, w32.MakeIntResource(w32.IDC_ARROW)),
 		WndProc: syscall.NewCallback(func(window w32.HWND, msg uint32, w, l uintptr) uintptr {
-			if msg == w32.WM_DESTROY {
+			switch msg {
+			case w32.WM_DESTROY:
 				w32.PostQuitMessage(0)
 				return 0
+			default:
+				return w32.DefWindowProc(window, msg, w, l)
 			}
-			return w32.DefWindowProc(window, msg, w, l)
 		}),
 		ClassName: syscall.StringToUTF16Ptr(className),
 	})
