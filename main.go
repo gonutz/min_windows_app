@@ -4,7 +4,7 @@ import (
 	"runtime"
 	"syscall"
 
-	"github.com/gonutz/w32"
+	"github.com/gonutz/w32/v2"
 )
 
 func main() {
